@@ -1,0 +1,27 @@
+[metadata]
+name = {{short_name}}
+version = attr: {{short_name}}._version.version
+description = {{short_description}}
+long_description = file: README.md
+long_description_content_type = text/markdown
+classifiers =
+    Programming Language :: Python :: 3{% if license == "mit" %}
+    OSI Approved :: MIT License{% endif %}{% if license == "proprietary" %}
+    License :: Other/Proprietary License{% endif %}{% if license == "proprietary" %}
+    Private :: Do not upload to PyPI{% endif %}
+
+[options]
+install_requires =
+    more-itertools
+package_dir=
+    =src
+
+[options.entry_points]
+console_scripts =
+    {{short_name}} = {{short_name}}.__main__:main
+
+[options.packages.find]
+where = src
+
+[options.package_data]
+{{short_name}} = py.typed

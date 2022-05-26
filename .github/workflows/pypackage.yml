@@ -1,0 +1,24 @@
+name: Python package
+
+on: [push]
+
+jobs:
+  stable:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.10"
+      - name: Install dependencies
+        run: |
+          export PIP_CONSTRAINT=constraints.txt
+          pip install pip setuptools
+          pip install -r constraints.txt
+      - name: Check format
+        run: make check_format
+      - name: Check lint
+        run: make check_lint
+      - name: Check tests
+        run: make check_tests

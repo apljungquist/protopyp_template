@@ -1,0 +1,9 @@
+[run]
+branch = True
+source = protopyp,tests
+
+[paths]
+source =
+    src/protopyp
+    .tox/*/lib/python*/site-packages/protopyp
+

@@ -1,0 +1,48 @@
+{# Ordered alphabetically unless there is a reason to deviate.
+ # Three newlines before a new section and
+ # two newlines before a new subsections
+ # to create separation of appearance that matches separation of content.
+ -#}
+ [build-system]
+requires = [
+    # 56 was too low, no package installed for some reason
+    "setuptools>=62",
+    "setuptools_scm[toml]>=6.0"
+]
+build-backend = "setuptools.build_meta"
+
+
+
+[tool.isort]
+line_length = 88
+profile = "black"
+
+
+[tool.mypy]
+disallow_untyped_defs = true
+
+
+[tool.pylint.MASTER]
+ignore = ["_version.py"]
+
+[tool.pylint.MISCELLANEOUS]
+notes=["FIXME"]
+
+[tool.pylint.format]
+max-line-length = 88
+
+[tool.pylint.messages_control]
+disable = [
+    "bad-continuation",  # for black compatibility
+    "missing-docstring",
+]
+good-names = []
+bad-names=[]
+
+
+[tool.setuptools_scm]
+write_to = 'src/{{short_name}}/_version.py'
+
+
+[tool.tox-constraints]
+plugin_enabled = true

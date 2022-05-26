@@ -1,0 +1,10 @@
+black
+copier
+flake8
+isort
+pip
+pip-tools >=6.6.2
+pylint
+pytest >=6.2.5
+setuptools
+setuptools_scm

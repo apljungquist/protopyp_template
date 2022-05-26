@@ -1,0 +1,14 @@
+long_name: My Project
+short_name: my_project
+short_description: A nice project
+license:
+  type: str
+  choices:
+    MIT: mit
+    proprietary: proprietary
+
+_skip_if_exists:
+- "constraints.txt"
+
+_tasks:
+- ["./bin/big_bang.sh"]
